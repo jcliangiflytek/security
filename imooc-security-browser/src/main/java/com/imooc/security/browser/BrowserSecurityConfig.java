@@ -47,11 +47,11 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
-		applyPasswordAuthenticationConfig(http);
+		applyPasswordAuthenticationConfig(http);  // 密码登录的相关配置
 		
-		http.apply(validateCodeSecurityConfig)
+		http.apply(validateCodeSecurityConfig)    // 短信，图片 验证码的相关配置
 				.and()
-			.apply(smsCodeAuthenticationSecurityConfig)
+			.apply(smsCodeAuthenticationSecurityConfig)   // 短信登录的相关配置
 				.and()
 			.rememberMe()
 				.tokenRepository(persistentTokenRepository())
